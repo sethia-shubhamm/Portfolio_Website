@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>Shubham's Portfolio</title>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container">
+        <div class="logo">SHUBHAM</div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="resume.pdf" target="_blank" class="btn-resume" style="padding-left: 5px; padding-right: 5px;">Resume</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Hi, I'm <span class="highlight">Shubham</span></h1>
+          <h2>Full-Stack Developer</h2>
+          <p>I build responsive, accessible and performant web applications</p>
+          <div class="cta-buttons">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-image">
+            <img src="images/image.png" alt="Shubham" />
+          </div>
+          <div class="about-text">
+            <p>
+              I'm a second-year Computer Science Engineering student at Manipal Institute of Technology, and I'm currently learning the ropes of full-stack development.
+            </p>
+            <p>
+              I started coding in 2023, just messing around with HTML, CSS, and JavaScript to build simple websites. That's when I realized how much I enjoy creating things with code. Since then, I've been exploring technologies and trying to understand how everything fits together on both the front and back end.
+            </p>
+            <p>
+              I'm still early in my developer journey, but I love learning and experimenting with new tools, frameworks, and ideas. Right now, I'm focused on building small projects to sharpen my skills and eventually contribute to real-world applications.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <img src="images/skills/html.png" alt="HTML" />
+            <h3>HTML</h3>
+          </div>
+          <div class="skill-card">
+            <img src="images/skills/css-3.png" alt="CSS" />
+            <h3>CSS</h3>
+          </div>
+          <div class="skill-card">
+            <img src="images/skills/javascript.png" alt="JavaScript" />
+            <h3>JavaScript</h3>
+          </div>
+          <div class="skill-card">
+            <img src="images/skills/react.png" alt="React" />
+            <h3>React</h3>
+          </div>
+          <div class="skill-card">
+            <img src="images/skills/bootstrap-logo.png" alt="Bootstrap" />
+            <h3>Bootstrap</h3>
+          </div>
+          <div class="skill-card">
+            <img src="images/skills/mysql.png" alt="MySQL" />
+            <h3>MySQL</h3>
+          </div>
+          <div class="skill-card">
+            <img src="images/skills/python.png" alt="Python" />
+            <h3>Python</h3>
+          </div>
+          <div class="skill-card">
+            <img src="images/skills/java.png" alt="Java" />
+            <h3>Java</h3>
+          </div>
+          <div class="skill-card">
+            <img src="images/skills/c-.png" alt="C++" />
+            <h3>C++</h3>
+          </div>
+          <div class="skill-card">
+            <img src="images/skills/c-sharp.png" alt="C#" />
+            <h3>C#</h3>
+          </div>
+          <div class="skill-card">
+            <img src="images/skills/php.png" alt="PHP" />
+            <h3>PHP</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="images/projects/hp_project.jpg" alt="Project 1" />
+            </div>
+            <div class="project-content">
+              <h3>Hospital Management System</h3>
+              <p>This project is a web-based Hospital Management System designed to streamline hospital operations. It features distinct portals for Administrators, Doctors, and Patients, facilitating tasks like appointment scheduling, patient record management, billing, and blood bank operations.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">PHP</span>
+                <span class="tech-badge">MySQL</span>
+                <span class="tech-badge">HTML</span>
+                <span class="tech-badge">CSS</span>
+                <span class="tech-badge">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/sethia-shubhamm/Hospital_Management_Project.git" class="github-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="#" class="live-demo-btn">
+                   <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-image">
+              <img src="images/projects/attendance_tracker.png" alt="Project 2" />
+            </div>
+            <div class="project-content">
+              <h3>Attendance Tracker</h3>
+              <p>This project is a student-focused web application that allows students to easily track their class attendance online. It helps students stay informed about their attendance status and manage their time more effectively. Allows users to add subjects and update daily attendance manually.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">HTML/CSS</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">Node JS</span>
+                <span class="tech-badge">Mongo DB</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="github-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="#" class="live-demo-btn">
+                   <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+          
+        
+         
+        </div>
+        </div>
+
+        
+        
+        <div class="project-navigation">
+          <div class="project-nav-btn prev-btn">
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <div class="project-nav-btn next-btn">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+        
+        <div class="project-indicators">
+          <!-- Indicators will be generated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 class="section-title">Get In Touch</h2>
+          <form class="contact-form">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Your Email" required />
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+
+
+            <div class="social-links">
+              <a href="mailto:shubham.mit06@gmail.com" ><i class="fa fa-envelope" aria-hidden="true"></i></a>
+              <a href="https://github.com/sethia-shubhamm" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/shubham-sethia/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+      <div class="container">
+        <div class="footer-links">
+          <a href="#home"></a>
+          <a href="#about"></a>
+          <a href="#skills"></a>
+          <a href="#projects"></a>
+          <a href="#contact"></a>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
