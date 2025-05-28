@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>404 - Page Not Found | Shubham's Portfolio</title>
+    <style>
+      .error-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+      }
+
+      .error-page::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--bg-overlay);
+        z-index: -1;
+      }      .error-content {
+        max-width: 600px;
+        padding: 3rem;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        animation: slideInUp 0.8s ease-out;
+      }      .error-code {
+        font-size: 8rem;
+        font-weight: bold;
+        background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        line-height: 1;
+        text-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+        animation: glitch 2s infinite, pulse 2s ease-in-out infinite alternate;
+        position: relative;
+      }
+
+      .error-code::before,
+      .error-code::after {
+        content: '404';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .error-code::before {
+        animation: glitch-1 2s infinite;
+        z-index: -1;
+      }
+
+      .error-code::after {
+        animation: glitch-2 2s infinite;
+        z-index: -2;
+      }      .error-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var(--text-color);
+        margin-bottom: 1rem;
+        animation: fadeInLeft 1s ease-out 0.3s both;
+      }
+
+      .error-message {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        animation: fadeInRight 1s ease-out 0.6s both;
+      }
+
+      .error-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeInUp 1s ease-out 0.9s both;
+      }
+
+      .btn-404 {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .btn-primary-404 {
+        background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+        color: #000;
+      }      .btn-primary-404:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 10px 20px rgba(100, 255, 218, 0.3);
+        animation: buttonPulse 0.6s ease;
+      }
+
+      .btn-secondary-404 {
+        background: transparent;
+        color: var(--text-color);
+        border: 2px solid var(--accent-color);
+      }
+
+      .btn-secondary-404:hover {
+        background: var(--accent-color);
+        color: #000;
+        transform: translateY(-2px) scale(1.05);
+        animation: buttonPulse 0.6s ease;
+      }      .floating-icons {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      #particleCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.3;
+      }.floating-icon {
+        position: absolute;
+        color: var(--accent-color);
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite, rotate 12s linear infinite;
+        transition: all 0.3s ease;
+      }
+
+      .floating-icon:hover {
+        opacity: 0.3;
+        transform: scale(1.2);
+      }
+
+      .floating-icon:nth-child(1) {
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+        font-size: 2rem;
+      }
+
+      .floating-icon:nth-child(2) {
+        top: 60%;
+        right: 10%;
+        animation-delay: 2s;
+        font-size: 1.5rem;
+      }
+
+      .floating-icon:nth-child(3) {
+        bottom: 20%;
+        left: 20%;
+        animation-delay: 4s;
+        font-size: 1.8rem;
+      }
+
+      .floating-icon:nth-child(4) {
+        top: 30%;
+        right: 20%;
+        animation-delay: 1s;
+        font-size: 1.3rem;
+      }      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes glitch {
+        0%, 74%, 76%, 100% {
+          transform: translate(0);
+        }
+        75% {
+          transform: translate(-2px, 2px);
+        }
+      }
+
+      @keyframes glitch-1 {
+        0%, 74%, 76%, 100% {
+          transform: translate(0);
+          opacity: 0;
+        }
+        75% {
+          transform: translate(2px, -2px);
+          opacity: 0.3;
+        }
+      }
+
+      @keyframes glitch-2 {
+        0%, 74%, 76%, 100% {
+          transform: translate(0);
+          opacity: 0;
+        }
+        75% {
+          transform: translate(-2px, -2px);
+          opacity: 0.3;
+        }
+      }
+
+      @keyframes pulse {
+        from {
+          text-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+        }
+        to {
+          text-shadow: 0 0 50px rgba(100, 255, 218, 0.6), 0 0 60px rgba(100, 255, 218, 0.4);
+        }
+      }
+
+      @keyframes buttonPulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(100, 255, 218, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(100, 255, 218, 0);
+        }
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .error-code {
+          font-size: 6rem;
+        }
+        
+        .error-title {
+          font-size: 2rem;
+        }
+        
+        .error-message {
+          font-size: 1rem;
+        }
+        
+        .error-content {
+          padding: 2rem;
+          margin: 1rem;
+        }
+        
+        .error-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .btn-404 {
+          width: 100%;
+          max-width: 250px;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>  <body>
+    <div class="floating-icons">
+      <i class="floating-icon fas fa-code"></i>
+      <i class="floating-icon fas fa-laptop-code"></i>
+      <i class="floating-icon fas fa-terminal"></i>
+      <i class="floating-icon fas fa-bug"></i>
+    </div>
+
+    <!-- Particle background -->
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="error-page">
+      <div class="error-content">
+        <div class="error-code" id="errorCode">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-message">
+          Oops! The page you're looking for seems to have wandered off into the digital void. 
+          Don't worry, even the best developers encounter broken links sometimes.
+        </p>
+        <div class="error-buttons">
+          <a href="index.html" class="btn-404 btn-primary-404">
+            <i class="fas fa-home"></i>
+            Back to Home
+          </a>
+          <a href="index.html#projects" class="btn-404 btn-secondary-404">
+            <i class="fas fa-folder-open"></i>
+            View Projects
+          </a>
+        </div>
+      </div>
+    </div>    <script>
+      // Theme toggle functionality
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+      const currentTheme = localStorage.getItem('theme');
+      
+      if (currentTheme === 'light' || (!currentTheme && !prefersDarkScheme.matches)) {
+        document.documentElement.classList.add('light-theme');
+      }
+      
+      // Enhanced floating icons interaction
+      document.addEventListener('mousemove', (e) => {
+        const floatingIcons = document.querySelectorAll('.floating-icon');
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        
+        floatingIcons.forEach((icon, index) => {
+          const speed = (index + 1) * 0.5;
+          const xOffset = (x - 0.5) * speed * 15;
+          const yOffset = (y - 0.5) * speed * 15;
+          
+          icon.style.transform = `translate(${xOffset}px, ${yOffset}px) rotate(${x * 360}deg)`;
+        });
+      });
+
+      // Particle system
+      class ParticleSystem {
+        constructor() {
+          this.canvas = document.getElementById('particleCanvas');
+          this.ctx = this.canvas.getContext('2d');
+          this.particles = [];
+          this.mouse = { x: 0, y: 0 };
+          
+          this.resize();
+          this.init();
+          this.animate();
+          
+          window.addEventListener('resize', () => this.resize());
+          window.addEventListener('mousemove', (e) => {
+            this.mouse.x = e.clientX;
+            this.mouse.y = e.clientY;
+          });
+        }
+        
+        resize() {
+          this.canvas.width = window.innerWidth;
+          this.canvas.height = window.innerHeight;
+        }
+        
+        init() {
+          this.particles = [];
+          const particleCount = Math.min(100, window.innerWidth / 10);
+          
+          for (let i = 0; i < particleCount; i++) {
+            this.particles.push({
+              x: Math.random() * this.canvas.width,
+              y: Math.random() * this.canvas.height,
+              vx: (Math.random() - 0.5) * 0.5,
+              vy: (Math.random() - 0.5) * 0.5,
+              size: Math.random() * 2 + 1,
+              opacity: Math.random() * 0.5 + 0.2,
+              color: `hsl(${Math.random() * 60 + 180}, 70%, 60%)`
+            });
+          }
+        }
+        
+        animate() {
+          this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+          
+          this.particles.forEach((particle, index) => {
+            // Update position
+            particle.x += particle.vx;
+            particle.y += particle.vy;
+            
+            // Mouse interaction
+            const dx = this.mouse.x - particle.x;
+            const dy = this.mouse.y - particle.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 100) {
+              const force = (100 - distance) / 100;
+              particle.vx += dx * force * 0.001;
+              particle.vy += dy * force * 0.001;
+            }
+            
+            // Bounce off edges
+            if (particle.x < 0 || particle.x > this.canvas.width) particle.vx *= -1;
+            if (particle.y < 0 || particle.y > this.canvas.height) particle.vy *= -1;
+            
+            // Keep particles in bounds
+            particle.x = Math.max(0, Math.min(this.canvas.width, particle.x));
+            particle.y = Math.max(0, Math.min(this.canvas.height, particle.y));
+            
+            // Draw particle
+            this.ctx.beginPath();
+            this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            this.ctx.fillStyle = particle.color;
+            this.ctx.globalAlpha = particle.opacity;
+            this.ctx.fill();
+            
+            // Draw connections
+            this.particles.slice(index + 1).forEach(otherParticle => {
+              const dx = particle.x - otherParticle.x;
+              const dy = particle.y - otherParticle.y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+              
+              if (distance < 100) {
+                this.ctx.beginPath();
+                this.ctx.moveTo(particle.x, particle.y);
+                this.ctx.lineTo(otherParticle.x, otherParticle.y);
+                this.ctx.strokeStyle = particle.color;
+                this.ctx.globalAlpha = (100 - distance) / 100 * 0.2;
+                this.ctx.lineWidth = 1;
+                this.ctx.stroke();
+              }
+            });
+          });
+          
+          this.ctx.globalAlpha = 1;
+          requestAnimationFrame(() => this.animate());
+        }
+      }
+      
+      // Initialize particle system
+      new ParticleSystem();
+      
+      // Add click effects to buttons
+      document.querySelectorAll('.btn-404').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          const ripple = document.createElement('span');
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          const x = e.clientX - rect.left - size / 2;
+          const y = e.clientY - rect.top - size / 2;
+          
+          ripple.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            left: ${x}px;
+            top: ${y}px;
+            background: rgba(100, 255, 218, 0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s ease-out;
+            pointer-events: none;
+          `;
+          
+          this.style.position = 'relative';
+          this.style.overflow = 'hidden';
+          this.appendChild(ripple);
+          
+          setTimeout(() => ripple.remove(), 600);
+        });
+      });
+      
+      // Add ripple animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes ripple {
+          to {
+            transform: scale(2);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      // Error code typing effect
+      const errorCode = document.getElementById('errorCode');
+      const originalText = '404';
+      let currentText = '';
+      let isTyping = true;
+      
+      function typeEffect() {
+        if (isTyping) {
+          if (currentText.length < originalText.length) {
+            currentText += originalText[currentText.length];
+            errorCode.textContent = currentText;
+            setTimeout(typeEffect, 200);
+          } else {
+            setTimeout(() => {
+              isTyping = false;
+              typeEffect();
+            }, 2000);
+          }
+        } else {
+          if (currentText.length > 0) {
+            currentText = currentText.slice(0, -1);
+            errorCode.textContent = currentText;
+            setTimeout(typeEffect, 100);
+          } else {
+            setTimeout(() => {
+              isTyping = true;
+              typeEffect();
+            }, 1000);
+          }
+        }
+      }
+      
+      // Start typing effect after page load
+      setTimeout(typeEffect, 1500);
+    </script>
+  </body>
+</html>

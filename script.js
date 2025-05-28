@@ -1,11 +1,12 @@
 window.addEventListener('scroll', function() {
   const navbar = document.querySelector('.navbar');
+  
   if (window.scrollY > 50) {
     navbar.style.padding = '10px 0';
-    navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.98)';
+    navbar.style.backgroundColor = 'var(--navbar-blur-bg)';
   } else {
     navbar.style.padding = '15px 0';
-    navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+    navbar.style.backgroundColor = 'var(--navbar-bg)';
   }
 });
 
@@ -359,4 +360,41 @@ document.addEventListener('DOMContentLoaded', () => {
   
   revealElements();
   window.addEventListener('scroll', revealElements);
+});
+
+
+// Theme Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  const themeIcon = themeToggle.querySelector('i');
+  
+  // Check for saved theme preference or default to dark mode
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  
+  // Apply the saved theme
+  if (savedTheme === 'light') {
+    root.classList.add('light-theme');
+    themeIcon.className = 'fas fa-moon';
+  } else {
+    root.classList.remove('light-theme');
+    themeIcon.className = 'fas fa-sun';
+  }
+  
+  // Theme toggle event listener
+  themeToggle.addEventListener('click', function() {
+    const isLightTheme = root.classList.contains('light-theme');
+    
+    if (isLightTheme) {
+      // Switch to dark theme
+      root.classList.remove('light-theme');
+      themeIcon.className = 'fas fa-sun';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      // Switch to light theme
+      root.classList.add('light-theme');
+      themeIcon.className = 'fas fa-moon';
+      localStorage.setItem('theme', 'light');
+    }
+  });
 });
